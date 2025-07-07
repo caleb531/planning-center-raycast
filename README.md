@@ -61,6 +61,10 @@ To run the extension locally in Raycast for development:
    npm run dev
    ```
 
+After you've run `npm run dev` for the first time, the local extension will be
+installed into Raycast, so you do not need to keep the process running unless
+you want to test changes locally.
+
 ## Disclaimer
 
 This project is not affiliated with Planning Center.
