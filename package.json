@@ -18,8 +18,8 @@
     {
       "name": "app_id",
       "type": "password",
-      "title": "App ID",
-      "description": "The app ID provided by Planning Center once you've generated a Personal Access Token",
+      "title": "Client ID",
+      "description": "The client ID provided by Planning Center once you've generated a Personal Access Token",
       "required": true
     },
     {
