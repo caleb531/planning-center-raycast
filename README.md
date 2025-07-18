@@ -50,8 +50,8 @@ To run the extension locally in Raycast for development:
 1. Clone this repository and install dependencies:
 
    ```sh
-   git clone https://github.com/caleb531/planning-center-raycast.git
-   cd planning-center-raycast
+   git clone https://github.com/raycast/extensions.git
+   cd extensions/planning-center
    npm install
    ```
 
