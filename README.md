@@ -18,7 +18,7 @@ Do not share the Application ID and Secret with anyone. Together, they grant acc
 
 ### 2. Enter ID and Secret into Raycast preferences
 
-After installing the extension, open **Raycast Preferences → Extensions → Planning Center** for Raycast, and enter your App ID and Secret in the provided
+After installing the extension, open **Raycast Preferences → Extensions → Planning Center** for Raycast, and enter your Client ID and Secret in the provided
 fields on the right-hand side.
 
 ## Usage
