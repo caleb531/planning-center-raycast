@@ -142,7 +142,6 @@ export default function Command() {
             <Action.OpenInBrowser url={`https://people.planningcenteronline.com/people/AC${person.id}`} />
             <Action
               title="Copy Phone Number"
-              shortcut={{ modifiers: ["cmd"], key: "enter" }}
               onAction={async () => {
                 const phone = await fetchPhone(person.id);
                 await Clipboard.copy(phone);
