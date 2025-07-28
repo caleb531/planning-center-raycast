@@ -123,7 +123,7 @@ export default function Command() {
 
   let listContent = null;
   if (error) {
-    listContent = <List.EmptyView title="Error" description={error} />;
+    listContent = <List.EmptyView title="Error" description={error.message} />;
   } else if (people.length === 0 && query) {
     listContent = <List.EmptyView title="No Results" description={`No people matching '${query}'`} />;
   } else {
