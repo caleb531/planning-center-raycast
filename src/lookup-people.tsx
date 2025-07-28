@@ -1,5 +1,6 @@
 import { Action, ActionPanel, Clipboard, getPreferenceValues, List, showToast, Toast } from "@raycast/api";
-import { useEffect, useState } from "react";
+import { useCachedPromise } from "@raycast/utils";
+import { useState } from "react";
 
 interface Person {
   id: string;
@@ -103,23 +104,11 @@ async function fetchEmail(personId: string): Promise<string> {
 
 export default function Command() {
   const [query, setQuery] = useState("");
-  const [people, setPeople] = useState<Person[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!query) {
-      setPeople([]);
-      setError(null);
-      return;
-    }
-    setIsLoading(true);
-    setError(null);
-    fetchPeople(query)
-      .then(setPeople)
-      .catch((e) => setError(e.message))
-      .finally(() => setIsLoading(false));
-  }, [query]);
+  const {
+    isLoading,
+    data: people = [],
+    error,
+  } = useCachedPromise(async (query: string) => fetchPeople(query), [query]);
 
   let listContent = null;
   if (error) {
