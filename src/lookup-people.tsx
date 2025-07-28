@@ -36,15 +36,10 @@ interface EmailsResponse {
   data: Email[];
 }
 
-interface Preferences {
-  app_id: string;
-  app_secret: string;
-}
-
 const API_BASE_URL = "https://api.planningcenteronline.com";
 
 function getAuthHeader(): string {
-  const { app_id, app_secret } = getPreferenceValues<Preferences>();
+  const { app_id, app_secret } = getPreferenceValues();
   const credentials = Buffer.from(`${app_id}:${app_secret}`).toString("base64");
   return `Basic ${credentials}`;
 }
