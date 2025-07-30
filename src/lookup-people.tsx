@@ -1,4 +1,4 @@
-import { Action, ActionPanel, Clipboard, getPreferenceValues, List, showToast, Toast } from "@raycast/api";
+import { Action, ActionPanel, Clipboard, getPreferenceValues, Icon, List, showToast, Toast } from "@raycast/api";
 import { useCachedPromise } from "@raycast/utils";
 import { useState } from "react";
 
@@ -119,6 +119,7 @@ export default function Command() {
     listContent = people.map((person) => (
       <List.Item
         key={person.id}
+        icon={Icon.Person}
         title={person.attributes.name}
         subtitle="View in Planning Center"
         actions={
