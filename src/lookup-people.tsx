@@ -40,7 +40,7 @@ interface EmailsResponse {
 const API_BASE_URL = "https://api.planningcenteronline.com";
 
 function getAuthHeader(): string {
-  const { app_id, app_secret } = getPreferenceValues();
+  const { app_id, app_secret } = getPreferenceValues<Preferences>();
   const credentials = Buffer.from(`${app_id}:${app_secret}`).toString("base64");
   return `Basic ${credentials}`;
 }
