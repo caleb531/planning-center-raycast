@@ -4,6 +4,10 @@
   "compilerOptions": {
     "lib": ["ES2023"],
     "module": "commonjs",
+    // Resolve imports using the bundler's package rules
+    "moduleResolution": "bundler",
+    // Include Node globals explicitly because TypeScript 6 no longer loads all ambient types
+    "types": ["node"],
     "target": "ES2023",
     "strict": true,
     "isolatedModules": true,
