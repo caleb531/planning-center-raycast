@@ -39,6 +39,12 @@ interface EmailsResponse {
 
 const API_BASE_URL = "https://api.planningcenteronline.com";
 
+// Shared browser URL base for people profiles and notes; excludes the /AC person identifier
+const PEOPLE_BASE_URL = "https://people.planningcenteronline.com/people";
+
+// Prefix added to person IDs in Planning Center browser URLs
+const PERSON_ID_PREFIX = "AC";
+
 function getAuthHeader(): string {
   const { app_id, app_secret } = getPreferenceValues<Preferences>();
   const credentials = Buffer.from(`${app_id}:${app_secret}`).toString("base64");
@@ -124,7 +130,10 @@ export default function Command() {
         subtitle="View in Planning Center"
         actions={
           <ActionPanel>
-            <Action.OpenInBrowser url={`https://people.planningcenteronline.com/people/AC${person.id}`} />
+            <Action.OpenInBrowser
+              title="Open Profile in Browser"
+              url={`${PEOPLE_BASE_URL}/${PERSON_ID_PREFIX}${person.id}`}
+            />
             <Action
               title="Copy Phone Number"
               onAction={async () => {
@@ -141,6 +150,11 @@ export default function Command() {
                 await Clipboard.copy(email);
                 showToast({ style: Toast.Style.Success, title: "Copied Email Address", message: email });
               }}
+            />
+            <Action.OpenInBrowser
+              title="Open Notes in Browser"
+              url={`${PEOPLE_BASE_URL}/${PERSON_ID_PREFIX}${person.id}/notes`}
+              shortcut={{ modifiers: ["shift"], key: "enter" }}
             />
           </ActionPanel>
         }
